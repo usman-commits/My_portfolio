@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Danazumi Usman - Engineer. Explore my projects, skills, and certifications.">
+    <meta name="keywords" content="Danazumi Usman, Engineer, projects, skills, certifications">
+    <meta name="author" content="Danazumi Usman">
+    <title>Danazumi Usman - Engineer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="icon/favicon.ico">
+    <script src="assets/downloadscript.js" defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, black, skyblue);
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px;
+        }
+
+        header img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+        }
+
+        header h1 {
+            margin: 10px 0 0 0;
+            font-size: 3em;
+        }
+
+        nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        nav a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        section {
+            padding: 50px;
+            text-align: center;
+        }
+
+        section p,
+        section div {
+            text-align: justify;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        footer a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .project {
+            margin-bottom: 40px;
+        }
+
+        .project img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .code-snippet {
+            background-color: #333;
+            padding: 10px;
+            margin-top: 20px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            max-height: 150px;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .code-snippet.full {
+            max-height: none;
+        }
+
+        .code-snippet code {
+            color: #00ff00;
+        }
+
+        .show-more {
+            cursor: pointer;
+            color: #007bff;
+        }
+
+        .fade-in {
+            animation: fadeIn 2s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-30px);
+            }
+
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+        .image-scroll-container {
+        overflow-x: auto;
+        white-space: nowrap;
+        margin: 20px 0;
+    }
+
+    .image-scroll-container img {
+        display: inline-block;
+        max-width: 100%;
+        height: auto;
+        margin-right: 10px; /* Adjust margin between images */
+    }
+
+    .swiper-container {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.swiper-slide {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 18px;
+    color: #000;
+}
+
+.swiper-slide img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+}
+nav .btn {
+    margin: 5px;
+}
+
+nav .btn-download {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+nav .btn-download:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+#contact {
+    text-align: center; /* Center aligns the text and buttons */
+    margin: 0 auto; /* Centers the section horizontally */
+    max-width: 700px; /* Adjust max-width as per your design */
+}
+
+.contact-links {
+    margin-top: 50px; /* Adds space between paragraph and buttons */
+}
+
+.contact-links a {
+    margin-right: 10px; /* Adds space between buttons */
+}
+.skill {
+    margin-bottom: 20px;
+}
+
+.skill-name {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.skill-bar {
+    height: 20px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-level {
+    height: 100%;
+    color: #fff;
+    text-align: center;
+    line-height: 20px;
+    background-color: #007bff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: width 1s ease-in-out;
+}
+
+
+
+
+    </style>
+    <script>
+        function toggleCodeSnippet() {
+            var snippet = document.getElementById('full-code-snippet');
+            var showMoreBtn = document.getElementById('show-more-btn');
+
+            if (snippet.classList.contains('full')) {
+                snippet.classList.remove('full');
+                showMoreBtn.textContent = 'Show More';
+            } else {
+                snippet.classList.add('full');
+                showMoreBtn.textContent = 'Show Less';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+    var swiper = new Swiper('.swiper-container', {
+        effect: 'coverflow',
+        coverflowEffect: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+        },
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+});
+    </script>
+
+    <script type="application/ld+json" src="assets/schema.json"></script>
+    
+</head>
+
+<body>
+    <header class="fade-in">
+        <img src="assets/img/profilepix.jpg" alt="Danazumi Usman - Engineer">
+        <h1>Danazumi Usman</h1>
+        <p>Engineer | Web Developer | Network Administrator</p>
+        <nav>
+            <a href="#about" class="btn btn-outline-light">About Me</a>
+            <a href="#projects" class="btn btn-outline-light">Projects</a>
+            <a href="#contact" class="btn btn-outline-light">Contact</a>
+            <a href="#certifications" class="btn btn-outline-light">Certifications & Courses</a>
+            <a href="#skills" class="btn btn-outline-light">Skills Matrix</a>
+            <a href="assets/Danazumi Cover letter.pdf" id="downloadResume" class="btn btn-outline-light btn-download" download>Download Resume</a>
+          
+        </nav>
+    </header>
+
+    <section id="about" class="container">
+        <h2 class="fade-in">About Me</h2>
+        <p>Hello! I'm Danazumi Usman, a versatile Engineer with a strong background in system engineering, network administration, and web development. Over the years, I've honed my skills across multiple domains, ensuring I can deliver robust, efficient, and scalable solutions for various technical challenges.</p>
+
+        <h3>My Expertise</h3>
+        <div>
+            System Engineering: I have extensive experience in designing, implementing, and managing complex systems. My work involves ensuring that all components of a system work together seamlessly, optimizing performance and reliability.<br><br>
+            Network Administration: With a deep understanding of network protocols and infrastructure, I excel in setting up and maintaining secure and efficient networks. My role often includes troubleshooting network issues, configuring hardware, and ensuring high availability.<br><br>
+            Web Development: I am proficient in both front-end and back-end web development. Using technologies like HTML, CSS, JavaScript, and frameworks such as React and Django, I build responsive and user-friendly web applications. My expertise in Python further enhances my ability to develop dynamic and scalable web solutions.<br><br>
+            Technical Sales: As a former technical sales representative, I have a solid background in selling computers, peripherals, and home broadband devices. This experience has equipped me with valuable skills in understanding customer needs, providing tailored solutions, and effectively communicating technical information to non-technical audiences.
+        </div>
+
+        <h3>Technical Skills</h3>
+        <div>
+            Programming Languages: Python, JavaScript, HTML, CSS<br><br>
+            Frameworks and Libraries: Django, React<br><br>
+            Tools and Technologies: Git, Docker, AWS, Linux<br><br>
+            Database Management: MySQL, PostgreSQL, SQLite
+        </div>
+
+        <h3>Professional Journey</h3>
+        <p>Throughout my career, I've had the opportunity to work on a wide range of projects, from developing small business websites to managing large-scale network infrastructures. Each project has contributed to my growth as a professional, allowing me to gain valuable insights and experience in the tech industry.</p>
+
+        <h3>Personal Attributes</h3>
+        <div>
+            Problem Solver: I thrive on solving complex problems and enjoy the challenge of finding innovative solutions.<br><br>
+            Continuous Learner: The tech field is ever-evolving, and I am committed to staying updated with the latest trends and advancements.<br><br>
+            Team Player: Collaboration is key to success. I work well with cross-functional teams to achieve common goals.
+        </div>
+
+        <h3>Let's Connect</h3>
+        <p>I am always open to discussing new opportunities, collaborations, or simply sharing knowledge. Feel free to connect with me through the contact information provided below.</p>
+        <a href="#contact" class="btn btn-primary">Contact Me</a>
+    </section>
+
+    <section id="projects" class="container">
+        <h2 class="fade-in">Projects</h2>
+
+        <div class="project fade-in">
+            <h3>Django Home Broadband Report Portal</h3>
+            <p>This project is about tracking and reporting daily sales figures for Airtel home broadband sales executives</p>
+            <div class="image-scroll-container">
+                <img src="assets/img/regist.png" alt="regist" class="img-fluid" width="500" height="500">
+                <img src="assets/img/login.png" alt="login" class="img-fluid" width="500" height="500">
+                <img src="assets/img/devreg.png" alt="Project Image 3" class="img-fluid" width="500" height="500">
+                <img src="assets/img/nccout.png" alt="Project Image 3" class="img-fluid" width="500" height="500">
+                <img src="assets/img/reactirep.png" alt="Project Image 3" class="img-fluid" width="500" height="500">
+                <img src="assets/img/upload.png" alt="Project Image 3" class="img-fluid" width="500" height="500">
+                <img src="assets/img/pie.png" alt="Project Image 3" class="img-fluid" width="500" height="500">
+                <img src="assets/img/mtd.png" alt="Project Image 3" class="img-fluid" width="500" height="500">
+                <img src="assets/img/profile.png" alt="Project Image 3" class="img-fluid" width="500" height="500">
+               
+            </div>
+            <p>For more details, visit the <a href="https://github.com/usman-commits/Djangoren_hbb" target="_blank" class="btn btn-outline-light">GitHub repository</a>.</p>
+            <div class="code-snippet" id="full-code-snippet">
+                <pre><code>
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html lang="en"&gt;
+                    &lt;head&gt;
+                        &lt;meta charset="utf-8"&gt;
+                        &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                        &lt;meta name="theme-color" content="#FF0000"&gt;
+                        &lt;title&gt;{% block title %}{% endblock title %}&lt;/title&gt;
+                        &lt;!-- base.html --&gt;
+                        &lt;link rel="manifest" href="{% static 'manifest.json' %}"&gt;
+                        &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.19.0/font/bootstrap-icons.css" rel="stylesheet"&gt;
+                        &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"&gt;
+                        &lt;link rel="stylesheet" href="{% static 'app/css/c.css' %}"&gt;
+                        &lt;link rel="stylesheet" href="/static/app/css/owl.carousel.min.css" /&gt;
+                        &lt;link rel="stylesheet" href="{% static 'app/css/all.min.css' %}" /&gt;
+                        
+                        &lt;style&gt;
+                            .navbar.navbar-dark.bg-dark {
+                                border-bottom: 5px solid rgb(241, 7, 7); 
+                            }
+                    
+                            /* Styles for the progress indicator */
+                            #progressIndicator {
+                                display: none;
+                                position: fixed;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 3px; /* Adjust height as needed */
+                                background-color: #007bff; /* Change color as needed */
+                                z-index: 9999;
+                            }
+                        &lt;/style&gt;
+                    &lt;/head&gt;
+                    
+                    &lt;body&gt;
+                        &lt;!-- Progress Indicator --&gt;
+                        &lt;div id="progressIndicator"&gt;&lt;/div&gt;
+                    
+                        &lt;header&gt;
+                            &lt;nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"&gt;
+                                &lt;div class="container"&gt;
+                                    &lt;a class="navbar-brand" href="#"&gt;
+                                        &lt;img src="{% static 'app/images/Airtel.jpg' %}" width="35" height="30" class="d-inline-block align-top" alt="a"&gt;
+                                        &lt;span class="f5" style="color:red;"&gt;Airtel Vendors Management Portal&lt;/span&gt;
+                                    &lt;/a&gt;
+                                    &lt;button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"&gt;
+                                        &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+                                    &lt;/button&gt;
+                                    &lt;div class="collapse navbar-collapse" id="navbarNavDropdown"&gt;
+                                        &lt;ul class="navbar-nav me-auto"&gt;
+                                            {% if request.user.is_authenticated %}
+                                                {% if request.user.is_staff %}
+                                                    &lt;li class="nav-item"&gt;
+                                                        &lt;a class="nav-link {% if request.path == 'pie_chart/' %}active{% endif %}" href="{% url 'pie_chart' %}"&gt;Pie Distribution&lt;/a&gt;
+                                                    &lt;/li&gt;
+                                                    &lt;li class="nav-item"&gt;
+                                                        &lt;a class="nav-link {% if request.path == 'broadband_tab/' %}active{% endif %}" href="{% url 'view_mtd' %}"&gt;View MTD&lt;/a&gt;
+                                                    &lt;/li&gt;
+                                                {% endif %}
+                                                &lt;!-- Common links accessible to all authenticated users --&gt;
+                                                &lt;li class="nav-item"&gt;
+                                                    &lt;a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}"&gt;Device Registration&lt;/a&gt;
+                                                &lt;/li&gt;
+                                                &lt;li class="nav-item"&gt;
+                                                    &lt;a class="nav-link {% if request.path == 'reactivation_report/' %}active{% endif %}" href="{% url 'reactivationreport' %}"&gt;Reactivation Report&lt;/a&gt;
+                                                &lt;/li&gt;
+                                                &lt;li class="nav-item"&gt;
+                                                    &lt;a class="nav-link {% if request.path == 'ncc_outlet_report/' %}active{% endif %}" href="{% url 'nccoutlet' %}"&gt;NCC Outlet Report&lt;/a&gt;
+                                                &lt;/li&gt;
+                                                &lt;li class="nav-item"&gt;
+                                                    &lt;a class="nav-link {% if request.path == 'upload_photo/' %}active{% endif %}" href="{% url 'upload_photo' %}"&gt;Upload Activity Photos&lt;/a&gt;
+                                                &lt;/li&gt;
+                                            {% else %}
+                                                &lt;!-- Links for users who are not authenticated --&gt;
+                                                &lt;li class="nav-item"&gt;
+                                                    &lt;a class="nav-link" href="{% url 'login' %}"&gt;Login&lt;/a&gt;
+                                                &lt;/li&gt;
+                                                &lt;li class="nav-item"&gt;
+                                                    &lt;a class="nav-link" href="{% url 'staffregistration' %}"&gt;Register&lt;/a&gt;
+                                                &lt;/li&gt;
+                                            {% endif %}
+                                        &lt;/ul&gt;
+                    
+                                        &lt;ul class="navbar-nav ms-auto"&gt;
+                                            {% if request.user.is_authenticated %}
+                                                &lt;li class="nav-item dropdown"&gt;
+                                                    &lt;a class="nav-link dropdown-toggle text-white" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"&gt;{{ request.user }}&lt;/a&gt;
+                                                    &lt;ul class="dropdown-menu" aria-labelledby="profileDropdown"&gt;
+                                                        &lt;li&gt;&lt;a class="dropdown-item" href="{% url 'profile' %}"&gt;Profile&lt;/a&gt;&lt;/li&gt;
+                                                        {% if request.user.is_superuser %}
+                                                            &lt;li&gt;&lt;a class="dropdown-item" href="{% url 'passwordchange' %}"&gt;Change Password&lt;/a&gt;&lt;/li&gt;
+                                                        {% endif %}
+                                                        &lt;li&gt;&lt;a class="dropdown-item" href="{% url 'logout' %}"&gt;Logout&lt;/a&gt;&lt;/li&gt;
+                                                    &lt;/ul&gt;
+                                                &lt;/li&gt;
+                                                &lt;li class="nav-item"&gt;
+                                                    &lt;div class="nav-link"&gt;
+                                                        {% if request.user.userprofile.avatar %}
+                                                            &lt;img src="{{ request.user.userprofile.avatar.url }}" alt="Profile" class="rounded-circle" width="40" height="40"&gt;
+                                                        {% else %}
+                                                            &lt;img src="{% static 'app/images/def.jpg' %}" alt="Default Profile Picture" class="img-fluid rounded-circle" width="40" height="40"&gt;
+                                                        {% endif %}
+                                                    &lt;/div&gt;
+                                                &lt;/li&gt;
+                                            {% endif %}
+                                        &lt;/ul&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/nav&gt;
+                        &lt;/header&gt;
+                        
+                        &lt;div class="container my-4"&gt;
+                            &lt;h1 class="display-6 fw-bold"&gt;HBB REPORT PORTAL&lt;/h1&gt;
+                            &lt;hr&gt;
+                            &lt;main&gt;
+                                {% block main-content %}{% endblock main-content %}
+                            &lt;/main&gt;
+                        &lt;/div&gt;
+                    
+                        <!-- Install button -->
+                        &lt;button id="installButton" style="display: none;"&gt;Install App&lt;/button&gt;
+                    
+                        <!-- Other scripts -->
+                        &lt;script src="https://code.jquery.com/jquery-3.6.4.min.js"&gt;&lt;/script&gt;
+                        &lt;script src="https://cdn.jsdelivr.net/npm/chart.js"&gt;&lt;/script&gt;
+                        &lt;script src="https://storage.googleapis.com/workbox-cdn/releases/7.1.2/workbox-sw.js"&gt;&lt;/script&gt;
+                        &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"&gt;&lt;/script&gt;
+                    
+                        &lt;script&gt;
+                            if ('serviceWorker' in navigator) {
+                                navigator.serviceWorker.register('{% static "service-worker.js" %}')
+                                    .then(function(registration) {
+                                        console.log('Service Worker registered with scope:', registration.scope);
+                                    }).catch(function(error) {
+                                        console.log('Service Worker registration failed:', error);
+                                    });
+                            }
+                    
+                            let deferredPrompt;
+                            const installButton = document.getElementById('installButton');
+                            
+                            window.addEventListener('beforeinstallprompt', (e) =&gt; {
+                                e.preventDefault();
+                                deferredPrompt = e;
+                                showInstallButton(); // Show the install button when beforeinstallprompt event is fired
+                            });
+                            
+                            function showInstallButton() {
+                                installButton.style.display = 'block'; // Display the install button
+                            }
+                    
+                            installButton.addEventListener('click', (e) =&gt; {
+                                installButton.style.display = 'none'; // Hide the install button
+                                deferredPrompt.prompt();
+                                deferredPrompt.userChoice.then((choiceResult) =&gt; {
+                                    if (choiceResult.outcome === 'accepted') {
+                                        console.log('User accepted the install prompt');
+                                    } else {
+                                        console.log('User dismissed the install prompt');
+                                    }
+                                    deferredPrompt = null;
+                                });
+                            });
+                    
+                            window.addEventListener('appinstalled', (evt) =&gt; {
+                                console.log('App installed successfully');
+                            });
+                    
+                            // Function to show the progress indicator
+                            function showProgressIndicator() {
+                                document.getElementById("progressIndicator").style.display = "block";
+                            }
+                    
+                            // Function to hide the progress indicator
+                            function hideProgressIndicator() {
+                                document.getElementById("progressIndicator").style.display = "none";
+                            }
+                        &lt;/script&gt;
+                    
+                    &lt;/body&gt;
+                    
+                    &lt;/html&gt;
+                </code></pre>
+            </div>
+            <span class="show-more btn btn-outline-light" id="show-more-btn" onclick="toggleCodeSnippet()">Show More</span>
+        </div>
+
+        <section id="certifications" class="container">
+            <h2 class="fade-in">Certifications & Courses</h2>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="assets/img/Code_of_Conduct_Field_Non-Management.png" alt="Certification 1">
+                        <p>Code of Conduct Field Non-Management</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img/Privacy_Training_For_Field_Employees_.png" alt="Certification 2">
+                        <p>Privacy Training For Field Employees</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img/certificate_001.png" alt="Certification 3">
+                        <p>Fundamentals of digital marketing</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img/Course_Certificate (1)_001.png" alt="Certification 3">
+                        <p>Google Analytics</p>
+                    </div>
+                    <!-- Add more certification slides as needed -->
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Add Navigation -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </section>
+
+        <section id="skills" class="container">
+            <h2 class="fade-in">Skills Matrix</h2>
+            <div class="skill">
+                <div class="skill-name">HTML</div>
+                <div class="skill-bar">
+                    <div class="skill-level" style="width: 100%;">100%</div>
+                </div>
+            <div class="skill">
+                <div class="skill-name">Django</div>
+                <div class="skill-bar">
+                    <div class="skill-level" style="width: 80%;">80%</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">JavaScript</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 70%;">70%</div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">React JS</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 70%;">70%</div>
+                        </div>
+                    <div class="skill">
+                        <div class="skill-name">Network design and implementation</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 100%;">100%</div>
+                        </div>
+                        <div class="skill">
+                            <div class="skill-name">Systems Engineering</div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 100%;">100%</div>
+                          </div>
+                          
+            </div>
+            <!-- Add more skills as needed -->
+        </section>
+        
+        
+        
+
+        <section id="contact" class="container text-center">
+            <h2 class="fade-in">Contact</h2>
+            <p>If you'd like to get in touch, feel free to reach out via any of the following platforms:</p>
+            <div>
+                <a href="mailto:danazumiusman2@gmail.com" class="btn btn-outline-light">Email</a>
+                <a href="https://www.linkedin.com/in/usman-danazumi-246666105" target="_blank" class="btn btn-outline-light">LinkedIn</a>
+                <a href="https://GitHub.com/usman-commits" target="_blank" class="btn btn-outline-light">GitHub</a>
+                <a href="https://x.com/Danzumi25" target="_blank" class="btn btn-outline-light">Twitter</a>
+                <a href="https://instagram.com/us.man1178" target="_blank" class="btn btn-outline-light">Instagram</a>
+                <a href="https://facebook.com/usman.abdul.73" target="_blank" class="btn btn-outline-light">Facebook</a>
+            </div>
+        </section>
+
+    <footer>
+        <p>&copy; 2024 Danazumi Usman. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+</body>
+
+</html>
