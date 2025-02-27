@@ -18,8 +18,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, rgb(3, 36, 2), skyblue);
-            color: white;
+            background: url('assets/img/cool-background.svg') no-repeat center center fixed;
+            background-size: cover;
             margin: 0;
             padding: 0;
         }
@@ -181,6 +181,14 @@
 }
 nav .btn {
     margin: 5px;
+    color: white;
+    background-color: #007bff; /* Blue background */
+    border: 2px solid #007bff; /* Blue border */
+}
+
+nav .btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    border-color: #0056b3;
 }
 
 nav .btn-download {
@@ -222,6 +230,17 @@ nav .btn-download:hover {
     border-radius: 4px;
     position: relative;
     overflow: hidden;
+}
+
+div .btn {
+    color: white;
+    background-color: #007bff; /* Blue background */
+    border: 2px solid #007bff; /* Blue border */
+}
+
+div .btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    border-color: #0056b3;
 }
 
 .skill-level {
@@ -319,7 +338,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <header class="fade-in">
         <img src="assets/img/profilepix.jpg" alt="Danazumi Usman - Engineer ">
         <h1>Danazumi Usman</h1>
-        <p>Engineer | Web Developer | Network Administrator</p>
+        <p>Engineer | Web Developer | Network Administrator | Data Analyst</p>
         <nav>
             <a href="#about" class="btn btn-outline-light">About Me</a>
             <a href="#projects" class="btn btn-outline-light">Projects</a>
@@ -336,18 +355,23 @@ document.addEventListener('DOMContentLoaded', function () {
         <p>Hello! I'm Danazumi Usman, a versatile Engineer with a strong background in system engineering, network administration, and web development. Over the years, I've honed my skills across multiple domains, ensuring I can deliver robust, efficient, and scalable solutions for various technical challenges.</p>
 
         <h3>My Expertise</h3>
-        <div>
-            System Engineering: I have extensive experience in designing, implementing, and managing complex systems. My work involves ensuring that all components of a system work together seamlessly, optimizing performance and reliability.<br><br>
-            Network Administration: With a deep understanding of network protocols and infrastructure, I excel in setting up and maintaining secure and efficient networks. My role often includes troubleshooting network issues, configuring hardware, and ensuring high availability.<br><br>
-            Web Development: I am proficient in both front-end and back-end web development. Using technologies like HTML, CSS, JavaScript, and frameworks such as React and Django, I build responsive and user-friendly web applications. My expertise in Python further enhances my ability to develop dynamic and scalable web solutions.<br><br>
-            Technical Sales: As a former technical sales representative, I have a solid background in selling computers, peripherals, and home broadband devices. This experience has equipped me with valuable skills in understanding customer needs, providing tailored solutions, and effectively communicating technical information to non-technical audiences.
-        </div>
+<div>
+    <strong>System Engineering:</strong> I have extensive experience in designing, implementing, and managing complex systems. My work involves ensuring that all components of a system work together seamlessly, optimizing performance and reliability.<br><br>
+    
+    <strong>Network Administration:</strong> With a deep understanding of network protocols and infrastructure, I excel in setting up and maintaining secure and efficient networks. My role often includes troubleshooting network issues, configuring hardware, and ensuring high availability.<br><br>
+    
+    <strong>Web Development:</strong> I am proficient in both front-end and back-end web development. Using technologies like HTML, CSS, JavaScript, and framework such as Django, I build responsive and user-friendly web applications. My expertise in Python further enhances my ability to develop dynamic and scalable web solutions.<br><br>
+    
+    <strong>Data Analysis:</strong> Leveraging powerful tools like Excel and Power BI, I specialize in transforming raw data into actionable insights. My expertise includes data cleaning, visualization, and trend analysis, helping businesses make informed decisions. By utilizing advanced Excel functions, pivot tables, and Power BI dashboards, I uncover patterns and drive data-driven strategies.<br><br>
+    
+    <strong>Technical Sales:</strong> As a former technical sales representative, I have a solid background in selling computers, peripherals, and home broadband devices. This experience has equipped me with valuable skills in understanding customer needs, providing tailored solutions, and effectively communicating technical information to non-technical audiences.
+</div>
 
         <h3>Technical Skills</h3>
         <div>
             Programming Languages: Python, JavaScript, HTML, CSS<br><br>
-            Frameworks and Libraries: Django, React<br><br>
-            Tools and Technologies: Git, Docker, AWS<br><br>
+            Frameworks and Libraries: Django<br><br>
+            Tools and Technologies: Git, Docker, Excel, Power BI<br><br>
             Database Management: MySQL, PostgreSQL, SQLite
         </div>
 
